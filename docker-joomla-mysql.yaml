@@ -1,0 +1,17 @@
+version "3.1"
+services:
+  joomla:
+    image: joomla
+    ports:
+      - 8080:80
+    environment:
+      JOOMLA_DB_HOST: mysql
+      JOOMLA_DB_PASSWORD: P@ssw0rd
+    volumes: 
+      - ./joomla:/var/www/html/
+  mysql:
+    image: mysql:5.7
+    environment: 
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+    volumes:
+      - ./mysql/:/var/lib/mysql
